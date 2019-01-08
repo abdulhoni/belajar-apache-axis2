@@ -20,7 +20,6 @@
          <version>1.6.4</version>
          <type>jar</type>
       </dependency>
-
       <!--javax.servlet.ServletException: javax.servlet.ServletException: org.apache.axis2.deployment.DeploymentException: org/apache/commons/httpclient/HttpException-->
       <!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
       <dependency>
@@ -28,7 +27,6 @@
          <artifactId>commons-httpclient</artifactId>
          <version>3.1</version>
       </dependency>
-
       <dependency>
          <groupId>org.apache.axis2</groupId>
          <artifactId>axis2-transport-http</artifactId>

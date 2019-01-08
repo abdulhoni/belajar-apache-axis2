@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.jepesoft.axis2</groupId>
+	<artifactId>creating-a-service-from-scratch-client</artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>creating-a-service-from-scratch-client</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<!-- [WARNING] unavailable
+      javax.servlet.ServletException: org.apache.axis2.deployment.DeploymentException: A ClassNotFoundException error occurred in loading the message receiver org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver-->
+      <dependency>
+         <groupId>org.apache.axis2</groupId>
+         <artifactId>axis2-adb</artifactId>
+         <version>1.6.4</version>
+         <type>jar</type>
+      </dependency>
+      <!--javax.servlet.ServletException: javax.servlet.ServletException: org.apache.axis2.deployment.DeploymentException: org/apache/commons/httpclient/HttpException-->
+      <!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
+      <dependency>
+         <groupId>commons-httpclient</groupId>
+         <artifactId>commons-httpclient</artifactId>
+         <version>3.1</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.axis2</groupId>
+         <artifactId>axis2-transport-http</artifactId>
+         <version>1.6.4</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.axis2</groupId>
+         <artifactId>axis2-transport-local</artifactId>
+         <version>1.6.4</version>
+      </dependency>
+		<dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>servlet-api</artifactId>
+         <version>2.5</version>
+         <scope>provided</scope>
+      </dependency>
+		<dependency>
+			<groupId>org.apache.ws.commons.axiom</groupId>
+			<artifactId>axiom-api</artifactId>
+			<version>1.2.21</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-kernel</artifactId>
+			<version>1.6.4</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>creating-a-service-from-scratch-client</finalName>
+	</build>
+</project>

@@ -1,0 +1,19 @@
+<!--http://localhost:9999/services/UserGuideSampleService?wsdl-->
+<service name="UserGuideSampleService">
+	<description>
+		This is a sample service created in the Axis2 User's Guide
+	</description>
+
+	<parameter name="ServiceClass">
+		com.jepesoft.axis2.service.SampleService
+	</parameter>
+
+	<operation name="sayHello">
+		<messageReceiver
+			class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver"/>
+	</operation>
+	<operation name="ping">
+		<messageReceiver
+			class="org.apache.axis2.receivers.RawXMLINOnlyMessageReceiver"/>
+	</operation>
+</service>
