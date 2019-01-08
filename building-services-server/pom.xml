@@ -1,0 +1,120 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.jepesoft.axis2</groupId>
+   <artifactId>building-services-server</artifactId>
+   <packaging>war</packaging>
+   <version>1.0-SNAPSHOT</version>
+   <name>building-services-server</name>
+   <url>http://maven.apache.org</url>
+   <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   </properties>
+   <dependencies>
+
+      <!-- [WARNING] unavailable
+      javax.servlet.ServletException: org.apache.axis2.deployment.DeploymentException: A ClassNotFoundException error occurred in loading the message receiver org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver-->
+      <dependency>
+         <groupId>org.apache.axis2</groupId>
+         <artifactId>axis2-adb</artifactId>
+         <version>1.6.4</version>
+         <type>jar</type>
+      </dependency>
+
+      <!--javax.servlet.ServletException: javax.servlet.ServletException: org.apache.axis2.deployment.DeploymentException: org/apache/commons/httpclient/HttpException-->
+      <!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
+      <dependency>
+         <groupId>commons-httpclient</groupId>
+         <artifactId>commons-httpclient</artifactId>
+         <version>3.1</version>
+      </dependency>
+
+      <dependency>
+         <groupId>org.apache.axis2</groupId>
+         <artifactId>axis2-transport-http</artifactId>
+         <version>1.6.4</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.axis2</groupId>
+         <artifactId>axis2-transport-local</artifactId>
+         <version>1.6.4</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.xmlbeans</groupId>
+         <artifactId>xmlbeans</artifactId>
+         <version>2.3.0</version>
+      </dependency>
+      <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>servlet-api</artifactId>
+         <version>2.5</version>
+         <scope>provided</scope>
+      </dependency>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>3.8.1</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <version>1.18.4</version>
+         <type>jar</type>
+      </dependency>
+
+   </dependencies>
+   <build>
+      <!--<finalName>building-services-server</finalName>-->
+      <directory>${project.basedir}/target</directory>
+      <outputDirectory>${project.build.directory}/classes</outputDirectory>
+      <!--<finalName>${project.artifactId}-${project.version}</finalName>-->
+      <finalName>${project.artifactId}</finalName>
+      <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
+      <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+      <!-- TODO: MNG-3731 maven-plugin-tools-api < 2.4.4 expect this to be relative... -->
+      <scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
+      <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+      <plugins>
+         <!-- http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html -->
+         <plugin>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+            <version>9.4.12.v20180830</version>
+         </plugin>
+
+         <!--         <plugin>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-java2wsdl-maven-plugin</artifactId>
+            <version>1.7.9</version>
+            <configuration>
+               <className>com.jepesoft.axis2.domain.Authority</className>
+            </configuration>
+            <executions>
+               <execution>
+                  <goals>
+                     <goal>java2wsdl</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>-->
+         <plugin>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-java2wsdl-maven-plugin</artifactId>
+            <version>1.6.4</version>
+            <executions>
+               <execution>
+                  <phase>process-classes</phase>
+                  <goals>
+                     <goal>java2wsdl</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <configuration>
+               <className>com.jepesoft.axis2.service.AuthorityService</className>
+               <outputFileName>${project.build.directory}/MavenAxis2WebService.wsdl</outputFileName>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+</project>
