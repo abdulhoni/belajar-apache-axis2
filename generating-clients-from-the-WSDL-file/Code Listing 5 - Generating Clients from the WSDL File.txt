@@ -1,0 +1,5 @@
+Code Listing 5 - Generating Clients from the WSDL File
+
+http://axis.apache.org/axis2/java/core/docs/userguide-codelisting5.html
+
+wsdl2java.sh -uri Client.wsdl -p com.jepesoft.axis2.service -d adb -s
